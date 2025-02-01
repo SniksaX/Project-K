@@ -1,65 +1,57 @@
-🚀 Rate-Limited Authentication API
+Rate-Limited Authentication API
+Overview
+This project is a secure authentication API built with Node.js, Express, and TypeScript, incorporating rate limiting to prevent abuse. It supports user registration, JWT-based authentication, and IP-based request tracking to control excessive API usage.
 
-📌 Overview
+Features
+User Registration & Authentication – Secure JWT-based authentication
+Rate Limiting – Limits requests per IP to prevent spam and abuse
+Bcrypt Password Hashing – Ensures password security
+Middleware for Protected Routes – Restricts access to authenticated users
+In-Memory User & IP Storage – Can be extended to Redis or a database
+TypeScript for Scalability – Well-structured and maintainable
+Installation & Setup
+Clone the repository
 
-This project is a secure authentication API built with Node.js, Express, and TypeScript, featuring rate limiting to prevent abuse. It includes user registration, login with JWT authentication, and IP-based request tracking to control excessive API usage.
+sh
+Copy
+Edit
+git clone git@github.com:SniksaX/Project-K.git  
+cd Project-K  
+Install dependencies
 
-⚡ Features
+sh
+Copy
+Edit
+npm install  
+Run the server
 
-✅ User Registration & Authentication (JWT-based)✅ Rate Limiting – Limits requests per IP to prevent spam✅ Bcrypt Password Hashing for security✅ Middleware for Protected Routes✅ In-Memory User & IP Storage (Can be extended to Redis/DB)✅ Well-structured TypeScript project for scalability
+sh
+Copy
+Edit
+npm run dev  
+The server will be available at: http://localhost:3000
 
-🏗️ Installation & Setup
+API Endpoints
+User Authentication
+Supports JWT-based authentication
+Limits login attempts per IP (e.g., max 5 per minute)
+Tech Stack
+Node.js & Express – Backend framework
+TypeScript – Ensures type safety and maintainability
+JWT (jsonwebtoken) – Authentication token system
+Bcrypt – Secure password hashing
+Rate Limiting Logic – IP-based tracking and request control
+Future Improvements
+Redis Integration – Persistent rate limiting
+Database Storage – User management with MongoDB or PostgreSQL
+Advanced Ban System – IP blocking for repeated offenses
+Role-Based Access Control (RBAC) – Granular access management
+Contributing
+Contributions are welcome! Follow these steps to contribute:
 
-1️⃣ Clone the Repository
-
-git clone git@github.com:SniksaX/Project-K.git
-cd Project-K
-
-2️⃣ Install Dependencies
-
-npm install
-
-3️⃣ Run the Server
-
-npm run dev
-
-📌 Server will run on: http://localhost:3000
-
-🔑 API Endpoints
-
-📝 User Authentication
-
-Limits requests per IP (e.g., max 5 per minute)
-
-🛠️ Tech Stack
-
-Node.js + Express 🚀 (Backend Framework)
-
-TypeScript ⌨️ (Strong Typing & Maintainability)
-
-JWT (jsonwebtoken) 🔐 (Authentication Token System)
-
-Bcrypt 🛡️ (Password Hashing)
-
-Rate Limiting Logic 🛠️ (IP Tracking)
-
-🏗️ Future Improvements
-
-✅ Redis Integration for persistent rate limiting✅ Database Storage for users (MongoDB/PostgreSQL)✅ Advanced Ban System (e.g., block IPs after multiple offenses)✅ Role-Based Access Control (RBAC)
-
-🤝 Contributing
-
-Fork the repo 🍴
-
-Create a new branch: feature/new-feature
-
-Commit your changes ✏️
-
-Push & Open a Pull Request ✅
-
-📜 License
-
+Fork the repository
+Create a new branch: feature/your-feature-name
+Make your changes and commit
+Push to your branch and open a pull request
+License
 This project is licensed under the MIT License.
-
-🚀 Let's build something great! 😎🔥
-
