@@ -29,50 +29,6 @@ npm run dev
 
 📝 User Authentication
 
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/register
-
-Register a new user
-
-POST
-
-/login
-
-Authenticate user & get JWT
-
-🛡️ Protected Routes (Require JWT)
-
-Method
-
-Endpoint
-
-Description
-
-GET
-
-/protected
-
-Example secured route
-
-📊 Rate Limiting
-
-Method
-
-Endpoint
-
-Description
-
-ANY
-
-/*
-
 Limits requests per IP (e.g., max 5 per minute)
 
 🛠️ Tech Stack
