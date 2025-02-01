@@ -1,3 +1,5 @@
+//src/middleware/limiter.middleware.ts
+
 import {Response, NextFunction} from "express"
 import { AuthenticatedRequest } from "./type.request";
 
