@@ -10,25 +10,27 @@ export const RequestTracker = (req: AuthenticatedRequest, res: Response, next: N
     const clientIp = forwardedIp ? (Array.isArray(forwardedIp) ? forwardedIp[0] : forwardedIp) : req.ip;
     const { method, url, headers, body } = req;
     const timestamp = new Date().toISOString();
+
+    const sanitizedBody = { ...body };
+    if (sanitizedBody.password) {
+        sanitizedBody.password = "********";
+    }
+
     const logEntry = JSON.stringify({
         ip: clientIp,
         timestamp,
         method,
         url,
         headers,
-        body: method !== "GET" ? body : undefined
+        body: method !== "GET" ? sanitizedBody : undefined
     }, null, 2);
 
     if (!fs.existsSync(path.dirname(logFilePath))) {
         fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
     }
 
-    fs.appendFileSync(logFilePath, logEntry);
-
-    if (method !== "GET") {
-        fs.appendFileSync(logFilePath, `Body: ${JSON.stringify(body)}\n`);
-    }
-
+    fs.appendFileSync(logFilePath, logEntry + "\n");
+ 
     const originalJson = res.json;
     res.json = function (data) {
         const responseLog = `Response: ${JSON.stringify(data)}\n\n`;

@@ -1,0 +1,66 @@
+EXAMPLE OF LOGS:
+
+{
+  "ip": "::1",
+  "timestamp": "2025-02-01T18:13:01.770Z",
+  "method": "POST",
+  "url": "/auth/register",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "PostmanRuntime/7.43.0",
+    "accept": "*/*",
+    "cache-control": "no-cache",
+    "postman-token": "c2edb7c8-5715-4909-a7b0-1c799fbacf26",
+    "host": "localhost:3000",
+    "accept-encoding": "gzip, deflate, br",
+    "connection": "keep-alive",
+    "content-length": "55"
+  },
+  "body": {
+    "username": "sniksa",
+    "password": "********"
+  }
+}
+Response: {"message":"User created","user":{"id":"47c1315a-ea07-48f2-877f-5d56eba7730f","username":"sniksa"}}
+
+{
+  "ip": "::1",
+  "timestamp": "2025-02-01T18:13:09.289Z",
+  "method": "POST",
+  "url": "/auth/login/",
+  "headers": {
+    "content-type": "application/json",
+    "user-agent": "PostmanRuntime/7.43.0",
+    "accept": "*/*",
+    "cache-control": "no-cache",
+    "postman-token": "34085030-93e9-4254-8c1c-51ed51f8c754",
+    "host": "localhost:3000",
+    "accept-encoding": "gzip, deflate, br",
+    "connection": "keep-alive",
+    "content-length": "55"
+  },
+  "body": {
+    "username": "sniksa",
+    "password": "********"
+  }
+}
+Response: {"message":"Connected","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ3YzEzMTVhLWVhMDctNDhmMi04NzdmLTVkNTZlYmE3NzMwZiIsInVzZXJuYW1lIjoic25pa3NhIiwiaWF0IjoxNzM4NDMzNTg5LCJleHAiOjE3Mzg1MTk5ODl9.wDCPfgU45rEiLwnCh2988t6j3qR1qrTSwUo-QXumDiA","user":{"id":"47c1315a-ea07-48f2-877f-5d56eba7730f","username":"sniksa"}}
+
+{
+  "ip": "::1",
+  "timestamp": "2025-02-01T18:13:13.086Z",
+  "method": "GET",
+  "url": "/auth/protected",
+  "headers": {
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNuaWtzYWFhYWFhYWEiLCJpZCI6IjVjODQ2NjgzLWQ0NDktNGI1Ni1iMzk2LWQ2N2UxOTkzZWU0ZiIsImlhdCI6MTczODM3MDU5MCwiZXhwIjoxNzM4NDU2OTkwfQ.J89B1xRftvx6e0NC7KsAA-SeziNBj09x__wLtL2OwxM",
+    "user-agent": "PostmanRuntime/7.43.0",
+    "accept": "*/*",
+    "cache-control": "no-cache",
+    "postman-token": "e35f97f3-79b0-4cab-94f7-bd6597dfa733",
+    "host": "localhost:3000",
+    "accept-encoding": "gzip, deflate, br",
+    "connection": "keep-alive"
+  }
+}
+Response: {"message":"Access granted","user":{"username":"sniksaaaaaaaa","id":"5c846683-d449-4b56-b396-d67e1993ee4f","iat":1738370590,"exp":1738456990}}
+
