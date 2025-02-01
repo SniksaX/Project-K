@@ -4,9 +4,8 @@ import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { UserManager } from "../models/user.model";
 import { config } from "../config/env";
-interface AuthenticatedRequest extends Request {
-    user?: any;
-}
+import { AuthenticatedRequest } from "../middleware/type.request";
+
   
 export const register = async (req: AuthenticatedRequest, res: Response) => {
   try {
