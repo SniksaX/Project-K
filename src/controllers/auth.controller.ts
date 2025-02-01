@@ -12,7 +12,7 @@ export const register = async (req: AuthenticatedRequest, res: Response) => {
     const newUser = await UserManager.create(username, password);
     res.status(201).json({ message: "User created", user: { id: newUser.id, username: newUser.username } });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error", error: error.message });
+    res.status(500).json({ message: "Internal server error", error: error });
   }
 };
 
@@ -23,10 +23,18 @@ export const login = async (req: AuthenticatedRequest, res: Response) => {
     
     if (!response.success) return res.status(401).json({ message: response.message });
 
-    const token = jwt.sign({ id: response.user.id, username: response.user.username }, config.SECURITY_TOKEN, { expiresIn: "24h" });
+    const token = jwt.sign(
+        { 
+          id: response.user?.id, 
+          username: response.user?.username 
+        },
+        config.SECURITY_TOKEN, 
+        { expiresIn: "24h" }
+      );
+      
 
-    res.status(200).json({ message: "Connected", token, user: response.user });
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error", error: error.message });
+      res.status(200).json({ message: "Connected", token, user: response.user });
+    } catch (error) {
+    res.status(500).json({ message: "Internal server error", error: error });
   }
 };
