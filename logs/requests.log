@@ -1,48 +1,40 @@
 EXAMPLE OF LOGS:
 
+
 {
-  "ip": "::1", << ip is 1 because it's on local
-  "timestamp": "2025-02-02T19:13:05.065Z",
+  "ip": "::1",
+  "timestamp": "2025-02-02T19:39:18.118Z",
   "method": "POST",
   "url": "/auth/register",
   "headers": {
     "content-type": "application/json",
-    "user-agent": "PostmanRuntime/7.43.0",
+    "user-agent": "API Client",
     "accept": "*/*",
     "cache-control": "no-cache",
-    "postman-token": "e59d89af-cec6-4e46-91ed-c6c18a3fbcd8",
     "host": "localhost:3000",
     "accept-encoding": "gzip, deflate, br",
     "connection": "keep-alive",
-    "content-length": "65"
+    "content-length": "92"
   },
   "body": {
-    "email": "papoosep1@gmail.com",
-    "password": "********"
+    "email": "[REDACTED]",
+    "username": "[REDACTED]",
+    "password": "[PROTECTED]"
   }
 }
-Response: {"message":"User created. Please check your email to verify your account.","user":{"id":"4aeb88c0-82e1-419f-bd2d-591e468914e6"}}
+Response: {"message":"User created. Please check your email to verify your account.","user":{"id":"[UUID]","username":"[REDACTED]"}}
 
 {
-  "ip": "::1", 
-  "timestamp": "2025-02-02T19:13:22.821Z",
+  "ip": "::1",
+  "timestamp": "2025-02-02T19:39:35.825Z",
   "method": "GET",
-  "url": "/auth/verify-email?token=a98c78db-1e0a-4a04-9898-ed367f3ed7a5",
+  "url": "/auth/verify-email?token=[TOKEN]",
   "headers": {
     "host": "localhost:3000",
     "connection": "keep-alive",
-    "upgrade-insecure-requests": "1",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36",
+    "user-agent": "Browser Client",
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-    "sec-gpc": "1",
     "accept-language": "en-US,en;q=0.8",
-    "sec-fetch-site": "cross-site",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-user": "?1",
-    "sec-fetch-dest": "document",
-    "sec-ch-ua": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Brave\";v=\"132\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Windows\"",
     "accept-encoding": "gzip, deflate, br, zstd"
   }
 }
@@ -50,66 +42,39 @@ Response: {"message":"Email verified successfully!"}
 
 {
   "ip": "::1",
-  "timestamp": "2025-02-02T19:13:22.874Z",
-  "method": "GET",
-  "url": "/favicon.ico",
-  "headers": {
-    "host": "localhost:3000",
-    "connection": "keep-alive",
-    "sec-ch-ua-platform": "\"Windows\"",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36",
-    "sec-ch-ua": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Brave\";v=\"132\"",
-    "sec-ch-ua-mobile": "?0",
-    "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-    "sec-gpc": "1",
-    "accept-language": "en-US,en",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-mode": "no-cors",
-    "sec-fetch-dest": "image",
-    "referer": "http://localhost:3000/auth/verify-email?token=a98c78db-1e0a-4a04-9898-ed367f3ed7a5",
-    "accept-encoding": "gzip, deflate, br, zstd"
-  }
-}
-
-
-{
-  "ip": "::1",
-  "timestamp": "2025-02-02T19:14:18.049Z",
+  "timestamp": "2025-02-02T19:39:45.390Z",
   "method": "POST",
-  "url": "/auth/login/",
+  "url": "/auth/login",
   "headers": {
     "content-type": "application/json",
-    "user-agent": "PostmanRuntime/7.43.0",
+    "user-agent": "API Client",
     "accept": "*/*",
     "cache-control": "no-cache",
-    "postman-token": "4d12ba83-c3dd-4c6d-84eb-6706fe816df7",
     "host": "localhost:3000",
     "accept-encoding": "gzip, deflate, br",
     "connection": "keep-alive",
     "content-length": "65"
   },
   "body": {
-    "email": "papoosep1@gmail.com",
-    "password": "********"
+    "email": "[REDACTED]",
+    "password": "[PROTECTED]"
   }
 }
-Response: {"message":"Connected","token":"eyJhb...","user":{"id":"4aeb88c0-82e1-419f-bd2d-591e468914e6"}}
+Response: {"message":"Connected","token":"[JWT_TOKEN]","user":{"id":"[UUID]","username":"[REDACTED]"}}
 
 {
   "ip": "::1",
-  "timestamp": "2025-02-02T19:14:24.242Z",
+  "timestamp": "2025-02-02T19:39:47.535Z",
   "method": "GET",
   "url": "/auth/protected",
   "headers": {
-    "authorization": "Bearer eyJhb..",
-    "user-agent": "PostmanRuntime/7.43.0",
+    "authorization": "Bearer [JWT_TOKEN]",
+    "user-agent": "API Client",
     "accept": "*/*",
     "cache-control": "no-cache",
-    "postman-token": "a58cb325-56fc-4480-b01e-297ad6a9de65",
     "host": "localhost:3000",
     "accept-encoding": "gzip, deflate, br",
     "connection": "keep-alive"
   }
 }
-Response: {"message":"Access granted","user":{"id":"3a6f596a-ca22-4c40-b16c-f9e5ad989002","iat":1738502571,"exp":1738588971}}
-
+Response: {"message":"Access granted","user":{"id":"[UUID]","iat":1738502571,"exp":1738588971}}

@@ -1,6 +1,7 @@
 // src/models/user.model.ts
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
+import { HttpError } from "../middleware/errorHandler.middleware";
 
 export class UserManager {
   id: string;
@@ -22,6 +23,13 @@ export class UserManager {
   }
 
   static async create(username: string, email: string, password: string) {
+    // Validate that all required fields are provided
+    if (!username || !email || !password) {
+      throw new HttpError(
+        "Missing required fields: username, email, or password",
+        400
+      );
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     return new UserManager(username, email, hashedPassword);
   }
