@@ -1,65 +1,72 @@
-🚀 Rate-Limited Authentication API
+# Rate-Limited Authentication API  
 
-📌 Overview
+## Overview  
 
-This project is a secure authentication API built with Node.js, Express, and TypeScript, featuring rate limiting to prevent abuse. It includes user registration, login with JWT authentication, and IP-based request tracking to control excessive API usage.
+This project is a secure authentication API built with Node.js, Express, and TypeScript, incorporating rate limiting to prevent abuse. It supports user registration, JWT-based authentication, and IP-based request tracking to control excessive API usage.  
 
-⚡ Features
+## Features  
 
-✅ User Registration & Authentication (JWT-based)✅ Rate Limiting – Limits requests per IP to prevent spam✅ Bcrypt Password Hashing for security✅ Middleware for Protected Routes✅ In-Memory User & IP Storage (Can be extended to Redis/DB)✅ Well-structured TypeScript project for scalability
+- **User Registration & Authentication** – Secure JWT-based authentication  
+- **Rate Limiting** – Limits requests per IP to prevent spam and abuse  
+- **Bcrypt Password Hashing** – Ensures password security  
+- **Middleware for Protected Routes** – Restricts access to authenticated users  
+- **In-Memory User & IP Storage** – Can be extended to Redis or a database  
+- **TypeScript for Scalability** – Well-structured and maintainable  
 
-🏗️ Installation & Setup
+## Installation & Setup  
 
-1️⃣ Clone the Repository
+1. **Clone the repository**  
 
-git clone git@github.com:SniksaX/Project-K.git
-cd Project-K
+   ```sh
+   git clone git@github.com:SniksaX/Project-K.git  
+   cd Project-K  
+   ```  
 
-2️⃣ Install Dependencies
+2. **Install dependencies**  
 
-npm install
+   ```sh
+   npm install  
+   ```  
 
-3️⃣ Run the Server
+3. **Run the server**  
 
-npm run dev
+   ```sh
+   npm run dev  
+   ```  
 
-📌 Server will run on: http://localhost:3000
+The server will be available at: `http://localhost:3000`  
 
-🔑 API Endpoints
+## API Endpoints  
 
-📝 User Authentication
+### User Authentication  
 
-Limits requests per IP (e.g., max 5 per minute)
+- Supports JWT-based authentication  
+- Limits login attempts per IP (e.g., max 5 per minute)  
 
-🛠️ Tech Stack
+## Tech Stack  
 
-Node.js + Express 🚀 (Backend Framework)
+- **Node.js & Express** – Backend framework  
+- **TypeScript** – Ensures type safety and maintainability  
+- **JWT (jsonwebtoken)** – Authentication token system  
+- **Bcrypt** – Secure password hashing  
+- **Rate Limiting Logic** – IP-based tracking and request control  
 
-TypeScript ⌨️ (Strong Typing & Maintainability)
+## Future Improvements  
 
-JWT (jsonwebtoken) 🔐 (Authentication Token System)
+- **Redis Integration** – Persistent rate limiting  
+- **Database Storage** – User management with MongoDB or PostgreSQL  
+- **Advanced Ban System** – IP blocking for repeated offenses  
+- **Role-Based Access Control (RBAC)** – Granular access management  
 
-Bcrypt 🛡️ (Password Hashing)
+## Contributing  
 
-Rate Limiting Logic 🛠️ (IP Tracking)
+Contributions are welcome! Follow these steps to contribute:  
 
-🏗️ Future Improvements
+1. Fork the repository  
+2. Create a new branch: `feature/your-feature-name`  
+3. Make your changes and commit  
+4. Push to your branch and open a pull request  
 
-✅ Redis Integration for persistent rate limiting✅ Database Storage for users (MongoDB/PostgreSQL)✅ Advanced Ban System (e.g., block IPs after multiple offenses)✅ Role-Based Access Control (RBAC)
+## License  
 
-🤝 Contributing
-
-Fork the repo 🍴
-
-Create a new branch: feature/new-feature
-
-Commit your changes ✏️
-
-Push & Open a Pull Request ✅
-
-📜 License
-
-This project is licensed under the MIT License.
-
-🚀 Let's build something great! 😎🔥
-
+This project is licensed under the MIT License.  
