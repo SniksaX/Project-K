@@ -1,72 +1,160 @@
-# Rate-Limited Authentication API  
+# Project-K Authentication API
 
-## Overview  
+## Overview
 
-This project is a secure authentication API built with Node.js, Express, and TypeScript, incorporating rate limiting to prevent abuse. It supports user registration, JWT-based authentication, and IP-based request tracking to control excessive API usage.  
+Project-K is a secure authentication API built with Node.js, Express, and TypeScript. It provides user registration, email verification, login, protected routes, and security middleware.
 
-## Features  
+## Features
 
-- **User Registration & Authentication** – Secure JWT-based authentication  
-- **Rate Limiting** – Limits requests per IP to prevent spam and abuse  
-- **Bcrypt Password Hashing** – Ensures password security  
-- **Middleware for Protected Routes** – Restricts access to authenticated users  
-- **In-Memory User & IP Storage** – Can be extended to Redis or a database  
-- **TypeScript for Scalability** – Well-structured and maintainable  
+- **User Registration** with email verification
+- **User Authentication** using JWT tokens
+- **Rate Limiting** to prevent abuse
+- **Request Logging** for tracking API usage
+- **Error Handling** for structured responses
+- **Email Service** for verification emails
 
-## Installation & Setup  
+## Installation
 
-1. **Clone the repository**  
+### Prerequisites
 
-   ```sh
-   git clone git@github.com:SniksaX/Project-K.git  
-   cd Project-K  
-   ```  
+- Node.js (v16+ recommended)
+- npm or yarn
+- A valid Gmail account for email verification
 
-2. **Install dependencies**  
+### Steps
 
-   ```sh
-   npm install  
-   ```  
-
-3. **Run the server**  
+1. Clone the repository:
 
    ```sh
-   npm run dev  
-   ```  
+   git clone https://github.com/SniksaX/Project-K
+   cd project-k
+   ```
 
-The server will be available at: `http://localhost:3000`  
+2. Install dependencies:
 
-## API Endpoints  
+   ```sh
+   npm install
+   ```
 
-### User Authentication  
+3. Create a `.env` file and add the following:
 
-- Supports JWT-based authentication  
-- Limits login attempts per IP (e.g., max 5 per minute)  
+   ```env
+   PORT=3000
+   SECURITY_TOKEN=your_secret_key
+   EMAIL_PASS_GMAIL=your_gmail_address
+   PASS_WORD=your_gmail_password
+   ```
 
-## Tech Stack  
+4. Activate Gmail App Password:
 
-- **Node.js & Express** – Backend framework  
-- **TypeScript** – Ensures type safety and maintainability  
-- **JWT (jsonwebtoken)** – Authentication token system  
-- **Bcrypt** – Secure password hashing  
-- **Rate Limiting Logic** – IP-based tracking and request control  
+   - Go to [Google Account Security](https://myaccount.google.com/security)
+   - Enable **2-Step Verification** if not already enabled.
+   - Scroll down to **App Passwords** and generate a password.
+   - Use this generated password as `PASS_WORD` in your `.env` file.
 
-## Future Improvements  
+5. Start the server:
 
-- **Redis Integration** – Persistent rate limiting  
-- **Database Storage** – User management with MongoDB or PostgreSQL  
-- **Advanced Ban System** – IP blocking for repeated offenses  
-- **Role-Based Access Control (RBAC)** – Granular access management  
+   ```sh
+   npm run dev
+   ```
 
-## Contributing  
+## API Endpoints
 
-Contributions are welcome! Follow these steps to contribute:  
+### Authentication Routes
 
-1. Fork the repository  
-2. Create a new branch: `feature/your-feature-name`  
-3. Make your changes and commit  
-4. Push to your branch and open a pull request  
+| Method | Endpoint             | Description                        |
+| ------ | -------------------- | ---------------------------------- |
+| POST   | `/auth/register`     | Register a new user                |
+| POST   | `/auth/login`        | Authenticate a user                |
+| GET    | `/auth/protected`    | Access a protected route (JWT req) |
+| GET    | `/auth/verify-email` | Verify email with a token          |
 
-## License  
+### Request Format
 
-This project is licensed under the MIT License.  
+#### Registration
+
+```json
+{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "securepassword"
+}
+```
+
+#### Login
+
+```json
+{
+  "email": "john@example.com",
+  "password": "securepassword"
+}
+```
+
+#### Response (Success)
+
+```json
+{
+  "message": "Connected",
+  "token": "your_jwt_token",
+  "user": {
+    "id": "user_id",
+    "username": "john_doe"
+  }
+}
+```
+
+## Middleware
+
+- **JWT Authentication (**\*\*****`verifyJWT`**\*\*\*\***)\*\*: Protects routes by verifying tokens.
+- **Rate Limiting (**\*\*****`RateLimiter`**\*\*\*\***)\*\*: Limits requests per IP to prevent abuse.
+- **Request Tracking (**\*\*****`RequestTracker`**\*\*\*\***)\*\*: Logs incoming requests.
+- **Error Handling (**\*\*****`errorHandler`**\*\*\*\***)\*\*: Manages API errors.
+
+## Development
+
+### Running in Development Mode
+
+```sh
+npm run dev
+```
+
+### Running in Production Mode
+
+```sh
+npm start
+```
+
+## Project Structure
+
+```
+project-k/
+│── src/
+│   ├── config/
+│   │   └── env.ts
+│   ├── controllers/
+│   │   └── auth.controller.ts
+│   ├── middleware/
+│   │   ├── auth.middleware.ts
+│   │   ├── limiter.middleware.ts
+│   │   ├── tracker.middleware.ts
+│   │   ├── errorHandler.ts
+│   │   └── type.requests.ts
+│   ├── models/
+│   │   └── user.model.ts
+│   ├── routes/
+│   │   └── auth.routes.ts
+│   ├── services/
+│   │   └── email.service.ts
+│── logs/
+│── main.ts
+│── package.json
+│── README.md
+```
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For inquiries, contact: [siraj.rahal.dev@gmail.com](mailto:siraj.rahal.dev@gmail.com)
