@@ -105,10 +105,10 @@ Project-K is a secure authentication API built with Node.js, Express, and TypeSc
 
 ## Middleware
 
-- **JWT Authentication (**\*\*****`verifyJWT`**\*\*\*\***)\*\*: Protects routes by verifying tokens.
-- **Rate Limiting (**\*\*****`RateLimiter`**\*\*\*\***)\*\*: Limits requests per IP to prevent abuse.
-- **Request Tracking (**\*\*****`RequestTracker`**\*\*\*\***)\*\*: Logs incoming requests.
-- **Error Handling (**\*\*****`errorHandler`**\*\*\*\***)\*\*: Manages API errors.
+- **JWT Authentication (**\*\*\***\*`verifyJWT`**\*\*\*\*\*\*)\*\*: Protects routes by verifying tokens.
+- **Rate Limiting (**\*\*\***\*`RateLimiter`**\*\*\*\*\*\*)\*\*: Limits requests per IP to prevent abuse.
+- **Request Tracking (**\*\*\***\*`RequestTracker`**\*\*\*\*\*\*)\*\*: Logs incoming requests.
+- **Error Handling (**\*\*\***\*`errorHandler`**\*\*\*\*\*\*)\*\*: Manages API errors.
 
 ## Development
 
@@ -137,7 +137,7 @@ project-k/
 │   │   ├── auth.middleware.ts
 │   │   ├── limiter.middleware.ts
 │   │   ├── tracker.middleware.ts
-│   │   ├── errorHandler.ts
+│   │   ├── errorHandler.middleware.ts
 │   │   └── type.requests.ts
 │   ├── models/
 │   │   └── user.model.ts
