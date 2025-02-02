@@ -26,8 +26,8 @@ Project-K is a secure authentication API built with Node.js, Express, and TypeSc
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/SniksaX/Project-K
-   cd project-k
+   git clone https://github.com/SniksaX/Project-K_Authentication-API
+   cd Project-K_Authentication-API
    ```
 
 2. Install dependencies:
@@ -105,10 +105,10 @@ Project-K is a secure authentication API built with Node.js, Express, and TypeSc
 
 ## Middleware
 
-- **JWT Authentication (**\*\*\***\*`verifyJWT`**\*\*\*\*\*\*)\*\*: Protects routes by verifying tokens.
-- **Rate Limiting (**\*\*\***\*`RateLimiter`**\*\*\*\*\*\*)\*\*: Limits requests per IP to prevent abuse.
-- **Request Tracking (**\*\*\***\*`RequestTracker`**\*\*\*\*\*\*)\*\*: Logs incoming requests.
-- **Error Handling (**\*\*\***\*`errorHandler`**\*\*\*\*\*\*)\*\*: Manages API errors.
+- **JWT Authentication (`verifyJWT`)**: Protects routes by verifying tokens.
+- **Rate Limiting (`RateLimiter`)**: Limits requests per IP to prevent abuse.
+- **Request Tracking (`RequestTracker`)**: Logs incoming requests.
+- **Error Handling (`errorHandler`)**: Manages API errors.
 
 ## Development
 
@@ -127,7 +127,7 @@ npm start
 ## Project Structure
 
 ```
-project-k/
+Project-K_Authentication-API/
 │── src/
 │   ├── config/
 │   │   └── env.ts
